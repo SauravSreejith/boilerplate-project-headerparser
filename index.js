@@ -18,10 +18,10 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
-
+app.set('trust proxy', true);
 // your first API endpoint...
 app.get('/api/hello', function (req, res) {
-  res.json({ greeting: 'hello API' });
+  return res.send({"ipaddress" : req.ip,"language": req.get('Accept-Language'),"software": req.headers['user-agent']})
 });
 
 // listen for requests :)
