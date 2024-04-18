@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 });
 app.set('trust proxy', true);
 // your first API endpoint...
-app.get('/api/hello', function (req, res) {
+app.get('/api/whoami', function (req, res) {
   return res.send({"ipaddress" : req.ip,"language": req.get('Accept-Language'),"software": req.headers['user-agent']})
 });
 
